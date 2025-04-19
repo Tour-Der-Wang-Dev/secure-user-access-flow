@@ -16,12 +16,13 @@ const Signup = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { data, error } = await supabase.auth.signUp({
+    
+    const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: {
-          username
+          username: username,
         }
       }
     });
@@ -29,8 +30,8 @@ const Signup = () => {
     if (error) {
       toast.error(error.message);
     } else {
-      toast.success('Signup successful');
-      navigate('/');
+      toast.success('Account created successfully! Please check your email for verification.');
+      navigate('/dashboard');
     }
   };
 
@@ -64,10 +65,10 @@ const Signup = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required 
-            placeholder="Choose a strong password" 
+            placeholder="Choose a password" 
           />
         </div>
-        <Button type="submit" className="w-full bg-teal-500 hover:bg-teal-600">
+        <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600">
           Sign Up
         </Button>
       </form>
