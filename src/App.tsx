@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import Dashboard from "./pages/Dashboard";
+import Content from "./pages/Content";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/content" element={<Content />} />
           <Route path="/privacy" element={<Privacy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -2,51 +2,70 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { MapPin, Search, Bell } from "lucide-react";
+import { ArrowRight, Search, Bell, BarChart2 } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-orange-500">WangSocial</h1>
-        <p className="text-xl mb-8 text-gray-700">
-          Discover local social media posts near Wang Sam Mo
-        </p>
-        
-        <div className="flex flex-col space-y-4 items-center">
-          <Link to="/auth/login">
-            <Button variant="default" className="bg-orange-500 hover:bg-orange-600 w-full md:w-auto">
-              Login
-            </Button>
-          </Link>
-          <Link to="/auth/signup">
-            <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-50 w-full md:w-auto">
-              Sign Up
-            </Button>
-          </Link>
+      <div className="container mx-auto px-4 py-16 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 mb-8 md:mb-0">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-orange-500">ตรวจจับโพสต์วังสามหมอ</h1>
+            <p className="text-xl mb-6 text-gray-700">
+              ค้นพบโพสต์และวิดีโอบนโซเชียลมีเดียในรัศมี 50 กิโลเมตรจากวังสามหมอ อุดรธานี
+            </p>
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+              <Link to="/auth/login">
+                <Button variant="default" className="bg-orange-500 hover:bg-orange-600 w-full md:w-auto">
+                  เข้าสู่ระบบ
+                </Button>
+              </Link>
+              <Link to="/auth/signup">
+                <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-50 w-full md:w-auto">
+                  สมัครสมาชิก
+                </Button>
+              </Link>
+              <Link to="/dashboard">
+                <Button variant="default" className="bg-orange-500 hover:bg-orange-600 w-full md:w-auto flex items-center">
+                  เริ่มต้น
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="md:w-1/2">
+            <div className="rounded-lg overflow-hidden shadow-lg bg-gray-50 h-64 md:h-96 flex items-center justify-center">
+              <img 
+                src="/placeholder.svg" 
+                alt="จระเข้วังสามหมอ" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Features Section */}
       <div className="bg-gray-50 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Our Features</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">คุณสมบัติของเรา</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard 
-              icon={<MapPin className="h-10 w-10 text-orange-500" />}
-              title="Local Discovery"
-              description="Find social media posts within a 50km radius of Wang Sam Mo, Udon Thani"
-            />
-            <FeatureCard 
               icon={<Search className="h-10 w-10 text-orange-500" />}
-              title="Keyword Filtering"
-              description="Filter content by specific keywords like 'วังสามหมอ', 'ไฟดับ'"
+              title="ค้นหาโพสต์"
+              description="ค้นหาโพสต์ในโซเชียลมีเดียด้วยคีย์เวิร์ดเฉพาะเช่น 'วังสามหมอ', 'ไฟดับ'"
             />
             <FeatureCard 
               icon={<Bell className="h-10 w-10 text-orange-500" />}
-              title="LINE Notifications"
-              description="Get notified when new relevant content is discovered"
+              title="แจ้งเตือน LINE"
+              description="รับการแจ้งเตือนผ่าน LINE เมื่อพบเนื้อหาที่เกี่ยวข้องใหม่"
+            />
+            <FeatureCard 
+              icon={<BarChart2 className="h-10 w-10 text-orange-500" />}
+              title="วิเคราะห์ข้อมูล"
+              description="ดูกราฟและการวิเคราะห์ของโพสต์ตามเวลาและคีย์เวิร์ด"
             />
           </div>
         </div>
@@ -71,7 +90,23 @@ const Index = () => {
             </div>
             <span className="text-sm text-gray-600">PDPA Compliant</span>
           </div>
-          <Link to="/privacy" className="text-sm text-teal-500 hover:underline">Privacy Policy</Link>
+          <Link to="/privacy" className="text-sm text-teal-500 hover:underline">
+            Privacy Policy
+          </Link>
+          <a 
+            href="https://github.com/username/wangsocial" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-sm text-teal-500 hover:underline"
+          >
+            GitHub
+          </a>
+        </div>
+        <div className="mt-4 text-xs text-gray-500 max-w-2xl mx-auto">
+          <p>
+            <b>คำเตือน:</b> การ scraping อาจละเมิดข้อกำหนดของแพลตฟอร์ม โปรเจกต์นี้เพื่อการศึกษาเท่านั้น 
+            กรุณาปรึกษาทนายความเพื่อให้แน่ใจว่าสอดคล้องกับ PDPA และกฎหมายอื่น ๆ
+          </p>
         </div>
       </div>
     </div>
@@ -80,13 +115,15 @@ const Index = () => {
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md text-center">
-      <div className="flex justify-center mb-4">
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
+    <Card className="bg-white p-6 rounded-lg shadow-md text-center">
+      <CardContent className="pt-6">
+        <div className="flex justify-center mb-4">
+          {icon}
+        </div>
+        <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
+        <p className="text-gray-600">{description}</p>
+      </CardContent>
+    </Card>
   );
 };
 
