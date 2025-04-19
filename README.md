@@ -24,10 +24,10 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone การเข้าถึงของผู้ใช้ที่ปลอดภัย
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd การเข้าถึงของผู้ใช้ที่ปลอดภัย
 
 # Step 3: Install the necessary dependencies.
 npm i
